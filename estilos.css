@@ -1,0 +1,122 @@
+.menu li {
+    float: right;
+    margin-left: 5%;
+    font-size: 1.2em;
+    font-weight: 700;
+    list-style: none;
+    float: left;
+}
+
+.menu {
+    margin: auto;
+    background-color: #ffffff;
+}
+
+.menu img {
+    float: right;
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+form {
+    margin-top: 40%;
+}
+
+.container {
+
+}
+
+.btnInicial {
+   margin-top:10px;
+   padding-left: 30px;
+   padding-right:30px;
+   margin-left: 110px;
+}
+
+.options {
+    font-size: 18px;
+}
+
+.btnPc {
+    margin: 0 auto;
+    text-align: center;
+}
+
+body {
+    color: #108199;
+}
+
+a { color: inherit; 
+}
+
+
+
+#proce label {
+    margin-left: 505px;
+    font-weight: 900;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.cortxt {
+    color: #108199;
+}
+
+
+ .labelestilo label {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+
+.erroBtn {
+    clear: both;
+    margin: 0px;
+}
+
+.container {
+    margin: auto;
+}
+
+.fomulariopc{
+    margin-top: 50px;
+}
+
+
+
+.centro label {
+    margin: 0 auto;
+}
+.centro {
+    text-align: center;
+}
+
+
+.margTop{
+    margin-top: 30px;
+}
+
+.left {
+    float: left;
+}
+
+.rigth {
+    float: right;
+}
+
+.processador h4{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.marcas option {
+    font-size: 18px;
+    color:#108199;
+}
+
+.btnsubmit {
+    margin-top: 150px;
+}
