@@ -1,12 +1,12 @@
 <?php
 $hostname = "localhost";
 $user = "root";
-$password = "";
-$database = "inventarioteste";
+$password = "root";
+$database = "lantec";
 $conexao = mysqli_connect($hostname,$user,$password,$database);
 
 if(!$conexao){
-	print "Falha na conexao com o banco de Dados :(";
+	print "Falha na conexao com o banco de Dadosss :(";
 }
 
 ?>
