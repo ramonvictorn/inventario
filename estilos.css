@@ -22,7 +22,7 @@
 }
 
 form {
-    margin-top: 40%;
+    margin-top: 0;
 }
 
 .container {
@@ -120,3 +120,34 @@ a { color: inherit;
 .btnsubmit {
     margin-top: 150px;
 }
+
+.zeroMargin {
+    margin-top: 0px;
+    width: 700px;
+    margin: auto;
+}
+
+
+
+table h1 {
+    font-weight: 900;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+}
+
+table {
+    text-align: center;   
+    margin: 0;
+}
+
+.topoTabela h1 {
+    font-size: 14px;
+}
+
+.testeTt {
+    width: 100%;
+}
+
+
+
