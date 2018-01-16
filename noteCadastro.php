@@ -31,7 +31,7 @@
             
     </div>
 <h1 class="centro">Cadastro de Notebook</h1>
-  <form class="fomulariopc" method="post" action="processapc.php">
+  <form class="fomulariopc" method="post" action="noteProcessa.php">
     <div class="row">
        <label class="form-check-label col-xl-12 col-md-12">
             <input class="form-check-input " type="checkbox" id="checkUfsc" name="checkUfsc" onChange="habilitar()"> <h4>Possui      patrimônio UFSC </h4></label>
@@ -48,8 +48,8 @@
     </div>
     <div class="row">
       <div class="col-xl-6 col-md-6">
-        <label for="exampleFormControlSelect2" class="labelestilo"><h4>Selecione a marca:</h4></label>
-            <select multiple class="form-control form-control-lg marcas" id="exampleFormControlSelect2">
+        <label for="exampleFormControlSelect2"  class="labelestilo"><h4>Selecione a marca:</h4></label>
+            <select multiple class="form-control form-control-lg marcas" id="pcOptionsMarcas" name="noteOptionsMarcas">
               <option value="Acer">Acer</option>
               <option value="Samsung">Samsung</option>
               <option value="Hp">Hp</option>
@@ -65,17 +65,17 @@
       </div>
       <div class="col-xl-3 align-self-center">
         <label for="exampleFormControlSelect2" class="labelestilo" ><h4>Digite o modelo:</h4></label>
-        <input type="text" class="form-control" placeholder="E430"/>
+        <input type="text" class="form-control" placeholder="E430" id="noteInputModelo" name="noteInputModelo"/>
       </div>
       <div class="col-xl-3  align-self-center">
           <label for="exampleFormControlSelect2" class="labelestilo"><h4>Digite o serial number:</h4></label>
-          <input type="text" class="form-control" placeholder="CEFV456"/>
+          <input type="text" class="form-control" placeholder="CEFV456" id="noteInputSerial" name="noteInputSerial"/>
       </div>
     </div>
     <div class="row">
         <div class="col-xl-6 col-md-6">    
             <label for="exampleFormControlSelect2" class="labelestilo" ><h4>Tamanho da tela</h4></label>
-            <input type="text" class="form-control" placeholder="exemplo:15,5"/>
+            <input type="text" class="form-control" placeholder="exemplo:15,5" id="inputTamanhoTela" name="inputTamanhoTela" />
              <small id="mutedTela" class="text-muted">
                 Colocar somente o número, com "."(ponto) e sem a unidade (considerar a unidade polegadas).
             </small>
@@ -89,13 +89,13 @@
       
     <div class="row">
       <div class="col-xl-6 col-md-12"> 
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select class="form-control" id="noteMarcaProcessador" name="noteMarcaProcessador">
             <option value="Intel">Intel</option>
             <option value="Amd">Amd</option>
         </select>
       </div>
       <div class="col-xl-6 col-md-6 ">
-        <input type="text" class="form-control inputs" placeholder="Digite o modelo"/>
+        <input type="text" class="form-control inputs" placeholder="Digite o modelo" id="noteInputModeloProcessador" name="noteInputModeloProcessador"/>
       </div>
     </div>
     <div class="row">
@@ -104,37 +104,37 @@
             <h4 class="margTop centro">Conservação do equipamento</h4>
             <div class="form-check centro">
                 <label class="form-check-label ">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Ótimo">
+                    <input class="form-check-input" type="radio" name="noteConservacao" id="exampleRadios1" value="Ótimo">
                     Ótimo
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Bom">
+                    <input class="form-check-input" type="radio" name="noteConservacao" id="exampleRadios2" value="Bom">
                     Bom
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="razoavelConservacao" value="Razoável">
+                    <input class="form-check-input" type="radio" name="noteConservacao" id="razoavelConservacao" value="Razoável">
                     Razoável
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="ruimConservacao" value="Ruim">
+                    <input class="form-check-input" type="radio" name="noteConservacao" id="ruimConservacao" value="Ruim">
                     Ruim
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="pessimasConservacao" value="Péssimas">
+                    <input class="form-check-input" type="radio" name="noteConservacao" id="pessimasConservacao" value="Péssimas">
                     Péssimas
                 </label>
             </div>
              <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="outroConservacao" value="Outro">
+                    <input class="form-check-input" type="radio" name="noteConservacao" id="outroConservacao" value="Outro">
                     Outro
                 </label>
             </div>
@@ -143,31 +143,31 @@
             <h4 class="margTop centro">Status do equipamento</h4>
             <div class="form-check centro">
                 <label class="form-check-label ">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="emUsoStatus" value="Em uso" checked>
+                    <input class="form-check-input" type="radio" name="noteStatus" id="emUsoStatus" value="Em uso" checked>
                     Em uso
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="emManutencaoStatus" value="Em manutenção">
+                    <input class="form-check-input" type="radio" name="noteStatus" id="emManutencaoStatus" value="Em manutenção">
                     Em manutenção
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="comDefeitoStatus" value="Com defeito">
+                    <input class="form-check-input" type="radio" name="noteStatus" id="comDefeitoStatus" value="Com defeito">
                     Com defeito
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="SemUsoFuncStatus" value="Sem uso (funcionando)">
+                    <input class="form-check-input" type="radio" name="noteStatus" id="SemUsoFuncStatus" value="Sem uso (funcionando)">
                     Sem uso (funcionando)
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Outro">
+                    <input class="form-check-input" type="radio" name="noteStatus" id="exampleRadios3" value="Outro">
                     Outro
                 </label>
             </div>
@@ -175,22 +175,19 @@
     </div>
     <div class="row">
         <div class="col-xl-12 col-md-12">
-                <label for="exampleFormControlSelect2" class="labelestilo" ><h4>Localização:</h4></label>
-                <input type="text" class="form-control" placeholder="example:Sala 403"/>
+                <label for="noteInputLocalizacao" class="labelestilo" ><h4>Localização:</h4></label>
+                <input type="text" class="form-control" placeholder="example:Sala 403" name="noteInputLocalizacao"/>
             
                 <label for="exampleFormControlTextarea1"><h4>Informações complementares:</h4></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="noteTxtArea" rows="3"></textarea>
             <small id="passwordHelpInline" class="text-muted">
                 Colocar informações adicionais ou que se façam necessárias para identificação do esquipamento.
             </small>
         </div>
     </div>    
     <div class="row">
-        <div class="col-xl-6">
-            <button type="button" class="btn btn-secondary btnPc rigth">Cadastrar</button>  
-        </div>
-        <div class="col-xl-6">
-            <button type="button" class="btn btn-secondary btnPc left">Cancelar</button>
+        <div class="col-xl-12 centro">
+            <input class="btn btn-primary btnsubmit" type="submit" value="Cadastrar">  
         </div>
     </div>
   </form>    

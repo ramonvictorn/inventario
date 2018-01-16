@@ -49,7 +49,7 @@
     <div class="row">
       <div class="col-xl-6 col-md-12 col-lg-12">
         <label for="pcOptionsMarcas" class="labelestilo"><h4>Selecione a marca:</h4></label>
-            <select multiple class="form-control form-control-lg marcas" id="pcOptionsMarcas" name="pcOptionsMarcas">
+            <select class="form-control form-control-lg marcas" id="pcOptionsMarcas" name="pcOptionsMarcas">
               <option value="Acer">Acer</option>
               <option value="Samsung">Samsung</option>
               <option value="Hp">Hp</option>

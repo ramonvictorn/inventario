@@ -56,6 +56,7 @@
           <input type="submit" value="Filtrar" class="btn">
         </form>
 
+        <h2> Computadores: </h2>
        <table border="1" class="topoTabela zeroMargin testeTt">
         <tr style=background-color:<?php echo $fundo;?> >
             <td class="topoTabela"><h1>Patrimônio Ufsc</h1></td>
@@ -102,30 +103,6 @@
                     } else {
                         $fundo= "#55f4c2";
                     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     print"<tr style=background-color:$fundo>";
                         print"<td>";
