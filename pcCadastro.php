@@ -1,3 +1,19 @@
+<?php
+    include_once("pcConexao.php");
+
+$inicio = "1";
+$sql = "SELECT * FROM `patrimonioLantecGeral` WHERE patrimônio like '%$inicio%'";
+$consultaCadastro = mysqli_query($conexao,$sql);
+
+
+      
+    $exibirRegistros = mysqli_fetch_array($consultaCadastro)) 
+                    $patriMaisUm = $exibirRegistros[0];
+    
+    ?>
+
+
+
 <!DOCTYPE html >
 <html lang="pt-bt">
 
@@ -43,7 +59,7 @@
       </div>
       <div class="form-group col-md-6 col-xl-6">
         <label for="inputLantec" class="labelestilo"><h4>Patrimônio Lantec</h4></label>
-        <input type="number" class="form-control" id="inputLantec" name="inputLantec"placeholder="Digite o patrimônio LANTEC">
+        <input type="number" class="form-control" id="inputLantec" name="inputLantec" placeholder="Digite o patrimônio LANTEC" value="<?php  print"$patriMaisUm" ?>" disabled="">
       </div>
     </div>
     <div class="row">

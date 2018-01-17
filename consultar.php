@@ -3,9 +3,11 @@
 
     $filtro = isset($_GET['inputFiltro'])?$_GET['inputFiltro']:"";
     $sql = "SELECT * FROM `inventario` WHERE inputUfsc like '%$filtro%'";
-
+    $sqlNote = "SELECT * FROM `noteInventario` WHERE inputUfsc like '%$filtro%'";
+    $consultaNote = mysqli_query($conexao,$sqlNote);
     $consulta = mysqli_query($conexao,$sql);
     $registros = mysqli_num_rows($consulta);
+    $registrosNote = mysqli_num_rows($consultaNote);
     $fundo="#55f4c2";
     
     ?>
@@ -153,15 +155,120 @@
                     print"</tr>";
                 }
            
-            print "</table>";
+                print "</table>";    
+            ?>  
 
-                mysqli_close($conexao);
 
 
-                ?>  
+        <h2> Notebooks: </h2>
+       <table border="1" class="topoTabela zeroMargin testeTt">
+        <tr style=background-color:<?php echo $fundo;?> >
+            <td class="topoTabela"><h1>Patrimônio Ufsc</h1></td>
+            <td><h1>Patrimônio Lantec</h1></td>
+            <td><h1>Marca</h1></td>
+            <td><h1>Modelo</h1></td>
+            <td><h1>Serial</h1></td>
+            <td><h1>Tela</h1></td>
+            <td><h1>Proce. Fabric.</h1></td>
+            <td><h1>Proce. Modelo</h1></td>
+            <td><h1>Conservação</h1></td>
+            <td><h1>Status</h1></td>
+            <td><h1>Localização</h1></td>
+            <td><h1>Informações complementares</h1></td>
+        </tr>
 
-                
-             
+        <?php
+            if($filtro != ""){
+                print "Resutados com $filtro<br>";}
+                print " $registrosNote registros encontrados.";
+        ?>
+
+        <?php 
+
+                while ($exibirRegistros = mysqli_fetch_array($consultaNote)) {
+                    $patrimônioUfsc = $exibirRegistros[0];
+                    $patrimônioLantec = "vou pegar ainda";
+                    $marcas = $exibirRegistros[1];
+                    $modelo = $exibirRegistros[2];
+                    $serial = $exibirRegistros[3];
+                    $tela = $exibirRegistros[4];
+                    $processadorFabricante =$exibirRegistros[5];
+                    $processadorModelo= $exibirRegistros[6];
+                    $conservação = $exibirRegistros[7];
+                    $status = $exibirRegistros[8];
+                    $localizacao = $exibirRegistros[9];
+                    $txtArea = $exibirRegistros[10];
+                    
+                    
+
+                    if($fundo=="#55f4c2"){
+                        $fundo= "#9CA7A3";
+                    } else {
+                        $fundo= "#55f4c2";
+                    }
+
+                    print"<tr style=background-color:$fundo>";
+                        print"<td>";
+                        print"$patrimônioUfsc";
+                        print"</td>";
+                    
+                        print"<td>";
+                        print"$patrimônioLantec";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$marcas";
+                        print"</td>";
+                        
+                        print"<td>";
+                        print"$modelo";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$serial";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$tela";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$processadorFabricante";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$processadorModelo";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$conservação";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$status";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$localizacao";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$txtArea";
+                        print"</td>";
+                       
+
+                    print"</tr>";
+                }
+           
+                print "</table>";    
+            ?>  
+
+
+
+
+        <?php
+              mysqli_close($conexao);
+        ?>
  </div>
 </body>
 </html>     
