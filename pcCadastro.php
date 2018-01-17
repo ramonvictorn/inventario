@@ -7,10 +7,9 @@ $consultaCadastro = mysqli_query($conexao,$sql);
 
 
       
-    $exibirRegistros = mysqli_fetch_array($consultaCadastro)) 
-                    $patriMaisUm = $exibirRegistros[0];
-    
-    ?>
+
+mysqli_close($conexao);    
+?>
 
 
 
