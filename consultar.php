@@ -9,7 +9,6 @@
     $registros = mysqli_num_rows($consulta);
     $registrosNote = mysqli_num_rows($consultaNote);
     $fundo="#55f4c2";
-    
     ?>
 
 <!DOCTYPE html >
@@ -97,8 +96,7 @@
                     $status = $exibirRegistros[8];
                     $localizacao = $exibirRegistros[9];
                     $txtArea = $exibirRegistros[10];
-                    
-                    
+                     
 
                     if($fundo=="#55f4c2"){
                         $fundo= "#9CA7A3";

@@ -70,7 +70,7 @@ mysqli_close($conexao);
       </div>
       <div class="form-group col-md-6 col-xl-6">
         <label for="inputLantec" class="labelestilo"><h4>Patrimônio Lantec</h4></label>
-        <input type="number" class="form-control" id="inputLantec" name="inputLantec" placeholder="<?php print"$ultimoCadastro" ?>" value="<?php  print"$ultimoCadastro" ?>" disabled="">
+        <input type="number" class="form-control" id="inputLantec" name="inputLantec" placeholder="<?php print"$ultimoCadastro" ?>" value="<?php  print"$ultimoCadastro" ?>" readonly="true">
       </div>
     </div>
     <div class="row">

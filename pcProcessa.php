@@ -3,6 +3,7 @@
 include_once("pcConexao.php");
 
 $inputUfsc = $_POST['inputUfsc'];
+$inputLantec = $_POST['inputLantec'];
 $pcOptionsMarcas = $_POST['pcOptionsMarcas'];
 $pcInputModelo = $_POST['pcInputModelo'];
 $pcInputSerial = $_POST['pcInputSerial'];
@@ -14,10 +15,10 @@ $pcInputLocalizacao = $_POST['pcInputLocalizacao'];
 $txtArea = $_POST['txtArea'];
 
 
-$sql = "insert into inventario (inputUfsc, pcOptionsMarcas, pcInputModelo, pcInputSerial, pcMarcaProcessador, pcInputModeloProcessador, pcRadioConservacao, pcRadioStatus, pcInputLocalizacao, txtArea) values ('$inputUfsc', '$pcOptionsMarcas', '$pcInputModelo', '$pcInputSerial', '$pcMarcaProcessador', '$pcInputModeloProcessador', '$pcRadioConservacao', '$pcRadioStatus', '$pcInputLocalizacao', '$txtArea' )";
+$sql = "insert into inventario (inputUfsc,inputLantec, pcOptionsMarcas, pcInputModelo, pcInputSerial, pcMarcaProcessador, pcInputModeloProcessador, pcRadioConservacao, pcRadioStatus, pcInputLocalizacao, txtArea) values ('$inputUfsc', '$inputLantec' ,'$pcOptionsMarcas', '$pcInputModelo', '$pcInputSerial', '$pcMarcaProcessador', '$pcInputModeloProcessador', '$pcRadioConservacao', '$pcRadioStatus', '$pcInputLocalizacao', '$txtArea' )";
 
 // FAZER INSERIR O PATRI USADO NO GERAL 
-$inserirGeral = "INSERT INTO patrimonioLantecGeral (patrimonio) VALUES ('90')"; 
+$inserirGeral = "INSERT INTO patrimonioLantecGeral (patrimonio) VALUES ('$inputLantec')"; 
 
 
 
@@ -30,7 +31,6 @@ $salvar = mysqli_query($conexao, $sql);
 $salvarGeral = mysqli_query ($conexao, $inserirGeral);
 
 $linhas = mysqli_affected_rows($conexao);
-
 
 
 mysqli_close($conexao);
