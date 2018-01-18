@@ -6,6 +6,18 @@ $sql = "SELECT * FROM `patrimonioLantecGeral` WHERE patrimônio like '%$inicio%'
 $consultaCadastro = mysqli_query($conexao,$sql);
 
 
+//CONSULTAR ULTIMO INVENTÁRIO CADASTRADO
+
+$sqlPatri = "SELECT patrimonio FROM patrimonioLantecGeral  WHERE  patrimonio In (Select Max(patrimonio) From patrimonioLantecGeral)";
+$consultaPatri = mysqli_query($conexao,$sqlPatri);
+$registrosPatri = mysqli_num_rows($consultaPatri);
+
+while ($exibirRegistros = mysqli_fetch_array($consultaPatri)){
+$ultimoCadastro = $exibirRegistros[0];}
+$ultimoCadastro = $ultimoCadastro + "1";
+
+//END LAST INVENTARY
+
       
 
 mysqli_close($conexao);    
@@ -54,11 +66,11 @@ mysqli_close($conexao);
     <div class="row">
      <div class="form-group col-md-6 col-xl-6">
         <label for="inputUfsc" class="labelestilo"><h4>Patrimônio UFSC:</h4></label>
-        <input type="number" class="form-control" id="inputUfsc" name="inputUfsc" value="" placeholder="Digite o patrimônio UFSC" disabled>
+        <input type="number" class="form-control" id="inputUfsc" name="inputUfsc" placeholder="Patrimônio Ufsc" disabled>
       </div>
       <div class="form-group col-md-6 col-xl-6">
         <label for="inputLantec" class="labelestilo"><h4>Patrimônio Lantec</h4></label>
-        <input type="number" class="form-control" id="inputLantec" name="inputLantec" placeholder="Digite o patrimônio LANTEC" value="<?php  print"$patriMaisUm" ?>" disabled="">
+        <input type="number" class="form-control" id="inputLantec" name="inputLantec" placeholder="<?php print"$ultimoCadastro" ?>" value="<?php  print"$ultimoCadastro" ?>" disabled="">
       </div>
     </div>
     <div class="row">
