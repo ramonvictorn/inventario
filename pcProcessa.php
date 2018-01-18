@@ -16,9 +16,22 @@ $txtArea = $_POST['txtArea'];
 
 $sql = "insert into inventario (inputUfsc, pcOptionsMarcas, pcInputModelo, pcInputSerial, pcMarcaProcessador, pcInputModeloProcessador, pcRadioConservacao, pcRadioStatus, pcInputLocalizacao, txtArea) values ('$inputUfsc', '$pcOptionsMarcas', '$pcInputModelo', '$pcInputSerial', '$pcMarcaProcessador', '$pcInputModeloProcessador', '$pcRadioConservacao', '$pcRadioStatus', '$pcInputLocalizacao', '$txtArea' )";
 
+// FAZER INSERIR O PATRI USADO NO GERAL 
+$inserirGeral = "INSERT INTO patrimonioLantecGeral (patrimonio) VALUES ('90')"; 
+
+
+
+
+// END OF INSERT INTO PATRI THE PATRI USABLE
+
+
+
 $salvar = mysqli_query($conexao, $sql); 
+$salvarGeral = mysqli_query ($conexao, $inserirGeral);
 
 $linhas = mysqli_affected_rows($conexao);
+
+
 
 mysqli_close($conexao);
 
