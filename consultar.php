@@ -2,8 +2,8 @@
     include_once("pcConexao.php");
 
     $filtro = isset($_GET['inputFiltro'])?$_GET['inputFiltro']:"";
-    $sql = "SELECT * FROM `inventario` WHERE inputUfsc like '%$filtro%'";
-    $sqlNote = "SELECT * FROM `noteInventario` WHERE inputUfsc like '%$filtro%'";
+    $sql = "SELECT * FROM `inventario` WHERE inputUfsc like '%$filtro%' ORDER BY inputLantec ASC";
+    $sqlNote = "SELECT * FROM `noteInventario` WHERE inputUfsc like '%$filtro%' ";
     $consultaNote = mysqli_query($conexao,$sqlNote);
     $consulta = mysqli_query($conexao,$sql);
     $registros = mysqli_num_rows($consulta);
