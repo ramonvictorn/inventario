@@ -1,3 +1,27 @@
+<?php
+    include_once("pcConexao.php");
+
+
+$consultaCadastro = mysqli_query($conexao,$sql);
+
+
+//CONSULTAR ULTIMO INVENTÁRIO CADASTRADO
+
+$sqlPatri = "SELECT patrimonio FROM patrimonioLantecGeral  WHERE  patrimonio In (Select Max(patrimonio) From patrimonioLantecGeral)";
+$consultaPatri = mysqli_query($conexao,$sqlPatri);
+$registrosPatri = mysqli_num_rows($consultaPatri);
+
+while ($exibirRegistros = mysqli_fetch_array($consultaPatri)){
+$ultimoCadastro = $exibirRegistros[0];}
+$ultimoCadastro = $ultimoCadastro + "1";
+
+//END LAST INVENTARY
+
+      
+
+mysqli_close($conexao);    
+?>
+
 <!DOCTYPE html >
 <html lang="pt-bt">
 
@@ -42,8 +66,8 @@
         <input type="number" class="form-control" id="inputUfsc" name="inputUfsc" placeholder="Digite o patrimônio UFSC" disabled>
       </div>
       <div class="form-group col-md-6 col-xl-6">
-        <label for="inputPassword4" class="labelestilo"><h4>Patrimônio Lantec</h4></label>
-        <input type="number" class="form-control" id="inputPassword4" placeholder="Digite o patrimônio LANTEC">
+        <label for="inputLantec" class="labelestilo"><h4>Patrimônio Lantec</h4></label>
+        <input type="number" class="form-control" name="inputLantec" id="inputLantec" placeholder="<?php print"$ultimoCadastro" ?>" value="<?php print"$ultimoCadastro" ?>" readonly="true">
       </div>
     </div>
     <div class="row">

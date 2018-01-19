@@ -1,8 +1,7 @@
 <?php
     include_once("pcConexao.php");
 
-$inicio = "1";
-$sql = "SELECT * FROM `patrimonioLantecGeral` WHERE patrimônio like '%$inicio%'";
+
 $consultaCadastro = mysqli_query($conexao,$sql);
 
 

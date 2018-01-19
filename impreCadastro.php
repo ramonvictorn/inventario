@@ -24,17 +24,17 @@
                     <ul>
                         <li><a href="index.php">Inicio</a></li>
                         <li><a href="cadastrar.php">Cadastrar</a></li>
-                        <li><a href="php">Consultar</a></li>
+                        <li><a href="consultar.php">Consultar</a></li>
                         <li><a href="contato.php">Contato</a></li>
                     </ul>
                 </div>
             
     </div>
 <h1 class="centro">Cadastro de Impressora</h1>
-  <form class="fomulariopc" method="post" action="processapc.php">
+  <form class="fomulariopc" method="post" action="impreProcessa.php">
     <div class="row">
        <label class="form-check-label col-xl-12 col-md-12">
-            <input class="form-check-input " type="checkbox" id="checkUfsc" name="checkUfsc" onChange="habilitar()"> <h4>Possui      patrimônio UFSC </h4></label>
+            <input class="form-check-input " type="checkbox" id="checkUfsc" name="checkUfsc" onChange="habilitar()"> <h4>Possui patrimônio UFSC </h4></label>
     </div>  
     <div class="row">
      <div class="form-group col-md-6 col-xl-6">
@@ -42,14 +42,14 @@
         <input type="number" class="form-control" id="inputUfsc" name="inputUfsc" placeholder="Digite o patrimônio UFSC" disabled>
       </div>
       <div class="form-group col-md-6 col-xl-6">
-        <label for="inputPassword4" class="labelestilo"><h4>Patrimônio Lantec</h4></label>
-        <input type="number" class="form-control" id="inputPassword4" placeholder="Digite o patrimônio LANTEC">
+        <label for="inputLantec" class="labelestilo"><h4>Patrimônio Lantec</h4></label>
+        <input type="number" class="form-control" id="inputLantec" name="inputLantec" placeholder="Digite o patrimônio LANTEC">
       </div>
     </div>
     <div class="row">
       <div class="col-xl-6 col-md-6">
-        <label for="exampleFormControlSelect2" class="labelestilo"><h4>Selecione a marca:</h4></label>
-            <select multiple class="form-control form-control-lg marcas" id="exampleFormControlSelect2">
+        <label for="impreOptionsMarcas" class="labelestilo"><h4>Selecione a marca:</h4></label>
+            <select multiple class="form-control form-control-lg marcas" id="impreOptionsMarcas" name="impreOptionsMarcas">
               <option value="Samsung">Samsung</option>
               <option value="Epson">Epson</option>
               <option value="Hp">Hp</option>
@@ -66,32 +66,27 @@
             </select>
       </div>
       <div class="col-xl-3 align-self-center">
-        <label for="exampleFormControlSelect2" class="labelestilo" ><h4>Digite o modelo:</h4></label>
-        <input type="text" class="form-control" placeholder="E430"/>
+        <label for="impreInputModelo" class="labelestilo"><h4>Digite o modelo:</h4></label>
+        <input type="text" class="form-control" name="impreInputModelo" id="impreInputModelo" placeholder="E430"/>
       </div>
       <div class="col-xl-3  align-self-center">
-          <label for="exampleFormControlSelect2" class="labelestilo"><h4>Digite o serial number:</h4></label>
-          <input type="text" class="form-control" placeholder="CEFV456"/>
+          <label for="impreInputSerial" class="labelestilo"><h4>Digite o serial number:</h4></label>
+          <input type="text" class="form-control" name="impreInputSerial" id="impreInputSerial" placeholder="CEFV456"/>
       </div>
     </div>
       <div class="row">
           <div class="col-xl-12 centro">
               <div class="form-check">
                   <h4>Funções:</h4>
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
-                        Imprime
-                </label>
-                  
                  <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
+                    <input type="checkbox" class="form-check-input" value="Sim" name="colorida">
                         Impressão colorida
-                </label>  
+                  </label>  
                   
-                <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input">
+                  <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" value="Sim" name="digitalizacao">
                         Digitalização
-                </label>  
+                  </label>  
                   
                  
               </div>
@@ -104,37 +99,37 @@
             <h4 class="margTop centro">Conservação do equipamento</h4>
             <div class="form-check centro">
                 <label class="form-check-label ">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="otimoConservacao" value="Ótimo">
+                    <input class="form-check-input" type="radio" name="impreConservacao" id="otimoConservacao" value="Ótimo">
                     Ótimo
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="bomConservacao" id="bomConservacao" value="Bom">
+                    <input class="form-check-input" type="radio" name="impreConservacao" id="bomConservacao" value="Bom">
                     Bom
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="razoavelConservacao" value="Razoável">
+                    <input class="form-check-input" type="radio" name="impreConservacao" id="razoavelConservacao" value="Razoável">
                     Razoável
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="ruimConservacao" value="Ruim">
+                    <input class="form-check-input" type="radio" name="impreConservacao" id="ruimConservacao" value="Ruim">
                     Ruim
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="pessimaConservacao" id="pessimaConservacao" value="Péssimas">
+                    <input class="form-check-input" type="radio" name="impreConservacao" id="pessimaConservacao" value="Péssimas">
                     Péssimas
                 </label>
             </div>
              <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="outroConservacao" id="outroConservacao" value="Outro">
+                    <input class="form-check-input" type="radio" name="impreConservacao" id="outroConservacao" value="Outro">
                     Outro
                 </label>
             </div>
@@ -143,31 +138,31 @@
             <h4 class="margTop centro">Status do equipamento</h4>
             <div class="form-check centro">
                 <label class="form-check-label ">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Em uso" checked>
+                    <input class="form-check-input" type="radio" name="impreStatus" id="exampleRadios1" value="Em uso" checked>
                     Em uso
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="emManutencaoStatus" value="Em manutenção">
+                    <input class="form-check-input" type="radio" name="impreStatus" id="emManutencaoStatus" value="Em manutenção">
                     Em manutenção
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="comDefeitoStatus" id="comDefeitoStatus" value="Com defeito">
+                    <input class="form-check-input" type="radio" name="impreStatus" id="comDefeitoStatus" value="Com defeito">
                     Com defeito
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="semUsoStatus" id="semUsoStatus" value="Sem uso (funcionando)">
+                    <input class="form-check-input" type="radio" name="impreStatus" id="semUsoStatus" value="Sem uso (funcionando)">
                     Sem uso (funcionando)
                 </label>
             </div>
             <div class="form-check centro">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="outroStatus" id="outroStatus" value="Outro">
+                    <input class="form-check-input" type="radio" name="impreStatus" id="outroStatus" value="Outro">
                     Outro
                 </label>
             </div>
@@ -175,11 +170,11 @@
     </div>
     <div class="row">
         <div class="col-xl-12 col-md-12">
-                <label for="exampleFormControlSelect2" class="labelestilo" ><h4>Localização:</h4></label>
-                <input type="text" class="form-control" placeholder="example:Sala 403"/>
+                <label for="impreInputLocalizacao" class="labelestilo" ><h4>Localização:</h4></label>
+                <input type="text" class="form-control" name="impreInputLocalizacao" id="impreInputLocalizacao" placeholder="example:Sala 403"/>
             
-                <label for="exampleFormControlTextarea1"><h4>Informações complementares:</h4></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label for="impreTxtArea"><h4>Informações complementares:</h4></label>
+                <textarea class="form-control" name="impreTxtArea" id="impreTxtArea" rows="3"></textarea>
             <small id="passwordHelpInline" class="text-muted">
                 Colocar informações adicionais ou que se façam necessárias para identificação do equipamento.
             </small>
@@ -187,11 +182,8 @@
     </div>
         
     <div class="row">
-        <div class="col-xl-6">
-            <button type="button" class="btn btn-secondary btnPc rigth">Cadastrar</button>  
-        </div>
-        <div class="col-xl-6">
-            <button type="button" class="btn btn-secondary btnPc left">Cancelar</button>
+        <div class="col-xl-12 centro">
+            <input class="btn btn-primary btnsubmit" type="submit" value="Cadastrar">  
         </div>
     </div>
   </form>    

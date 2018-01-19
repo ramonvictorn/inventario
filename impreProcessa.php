@@ -1,36 +1,45 @@
 <?php
 
-include_once("noteConexao.php");
+include_once("pcConexao.php");
 
+
+// -    PEGANDO VALORES DO FORM
 $inputUfsc = $_POST['inputUfsc'];
 $inputLantec = $_POST['inputLantec'];
-$noteOptionsMarcas = $_POST['noteOptionsMarcas'];
-$noteInputModelo = $_POST['noteInputModelo'];
-$noteInputSerial = $_POST['noteInputSerial'];
-$inputTamanhoTela = $_POST['inputTamanhoTela'];
-$noteMarcaProcessador = $_POST['noteMarcaProcessador'];
-$noteInputModeloProcessador = $_POST['noteInputModeloProcessador'];
-$noteRadioConservacao = $_POST['noteConservacao'];
-$noteRadioStatus = $_POST['noteStatus'];
-$noteInputLocalizacao = $_POST['noteInputLocalizacao'];
-$noteTxtArea = $_POST['noteTxtArea'];
+$impreOptionsMarcas = $_POST['impreOptionsMarcas'];
+$impreInputModelo = $_POST['impreInputModelo'];
+$impreInputSerial = $_POST['impreInputSerial'];
+$colorida = $_POST['colorida'];
+$digitaliza = $_POST['digitalizacao'];
+$impreConservacao = $_POST['impreConservacao'];
+$impreStatus = $_POST['impreStatus'];
+$impreInputLocalizacao = $_POST['impreInputLocalizacao'];
+$impreTxtArea = $_POST['impreTxtArea'];
+// ------ END  VALUES
+
+//CONDICIONAL PARA CHECKBOX DE IMPRESSAO COLORIDA E DIGITALIZACAO
+if ($colorida==null){
+	$colorida="Não";
+}
+if ($digitaliza==null){
+	$digitaliza="Não";
+}
+//FIM DAS CONDICIONAIS
 
 
-$sql = "insert into noteInventario (inputUfsc, inputLantec ,noteOptionsMarcas, noteInputModelo, noteInputSerial ,inputTamanhoTela , noteMarcaProcessador , noteInputModeloProcessador,  noteConservacao , noteStatus, noteInputLocalizacao, noteTxtArea) values ('$inputUfsc','$inputLantec' , '$noteOptionsMarcas', '$noteInputModelo', '$noteInputSerial', '$inputTamanhoTela' , '$noteMarcaProcessador', '$noteInputModeloProcessador', '$noteRadioConservacao', '$noteRadioStatus', '$noteInputLocalizacao', '$noteTxtArea' )";
-
-// FAZER INSERIR O PATRI USADO NO GERAL 
-$inserirGeral = "INSERT INTO patrimonioLantecGeral (patrimonio) VALUES ('$inputLantec')"; 
-
-// END OF INSERT INTO PATRI THE PATRI USABLE
+//INSERT INT TABLE impressorasPatrimonio
+$inserirImpressora = "insert into impressoraInventario(inputUfsc, inputLantec, impreOptionsMarcas, impreInputModelo, impreInputSerial,  colorida, digitaliza,  impreConservacao, impreStatus, impreInputLocalizacao, impreTxtArea) values  ('$inputUfsc', '$inputLantec', '$impreOptionsMarcas', '$impreInputModelo', '$impreInputSerial', '$colorida' , '$digitaliza' , '$impreConservacao', 
+	'$impreStatus', '$impreInputLocalizacao', '$impreTxtArea')" ;
+//END INSERT
 
 
-$salvar = mysqli_query($conexao, $sql); 
-$salvarGeral = mysqli_query ($conexao, $inserirGeral);  
+//Salva in table
+
+$salvar = mysqli_query($conexao, $inserirImpressora); 
 $linhas = mysqli_affected_rows($conexao);
 
+//FECHA CONEXAO
 mysqli_close($conexao);
-
-
 ?>
 
 <!DOCTYPE html >
@@ -70,9 +79,9 @@ mysqli_close($conexao);
     	<h1> Confirmação de cadastro:</h1>
      	<?php
      		if($linhas == 1) {
-     			print "Cadastro Efetuado com sucesso";
+     			print "ImpreCadastro Efetuado com sucesso";
      		} else {
-     			print "Patrimonio UFSC já cadastrado";
+     			print "ImprePatrimonio UFSC já cadastrado";
      		}
      	?>
     </div>
@@ -82,4 +91,4 @@ mysqli_close($conexao);
 
 </div>
 </body>
-</html>            
+</html>    

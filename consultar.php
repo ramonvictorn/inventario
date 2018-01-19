@@ -185,17 +185,17 @@
 
                 while ($exibirRegistros = mysqli_fetch_array($consultaNote)) {
                     $patrimônioUfsc = $exibirRegistros[0];
-                    $patrimônioLantec = "vou pegar ainda";
-                    $marcas = $exibirRegistros[1];
-                    $modelo = $exibirRegistros[2];
-                    $serial = $exibirRegistros[3];
-                    $tela = $exibirRegistros[4];
-                    $processadorFabricante =$exibirRegistros[5];
-                    $processadorModelo= $exibirRegistros[6];
-                    $conservação = $exibirRegistros[7];
-                    $status = $exibirRegistros[8];
-                    $localizacao = $exibirRegistros[9];
-                    $txtArea = $exibirRegistros[10];
+                    $patrimônioLantec = $exibirRegistros[1];
+                    $marcas = $exibirRegistros[2];
+                    $modelo = $exibirRegistros[3];
+                    $serial = $exibirRegistros[4];
+                    $tela = $exibirRegistros[5];
+                    $processadorFabricante =$exibirRegistros[6];
+                    $processadorModelo= $exibirRegistros[7];
+                    $conservação = $exibirRegistros[8];
+                    $status = $exibirRegistros[9];
+                    $localizacao = $exibirRegistros[10];
+                    $txtArea = $exibirRegistros[11];
                     
                     
 
