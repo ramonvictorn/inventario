@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 include_once("pcConexao.php");
 
@@ -32,10 +32,12 @@ $inserirImpressora = "insert into impressoraInventario(inputUfsc, inputLantec, i
 	'$impreStatus', '$impreInputLocalizacao', '$impreTxtArea')" ;
 //END INSERT
 
+$inserirGeral = "INSERT INTO patrimonioLantecGeral (patrimonio) VALUES ('$inputLantec')"; 
 
 //Salva in table
 
 $salvar = mysqli_query($conexao, $inserirImpressora); 
+$salvarGeral = mysqli_query ($conexao, $inserirGeral);
 $linhas = mysqli_affected_rows($conexao);
 
 //FECHA CONEXAO

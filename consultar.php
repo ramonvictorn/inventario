@@ -9,6 +9,12 @@
     $registros = mysqli_num_rows($consulta);
     $registrosNote = mysqli_num_rows($consultaNote);
     $fundo="#55f4c2";
+
+    // CONSULTA DE IMPRESSORAS
+    $sqlImpre = "SELECT * FROM `impressoraInventario` WHERE inputUfsc like '%$filtro%' ORDER BY inputLantec ASC";
+    $consultaImpre = mysqli_query($conexao,$sqlImpre);
+    $registrosImpre = mysqli_num_rows($consultaImpre);
+
     ?>
 
 <!DOCTYPE html >
@@ -260,6 +266,106 @@
            
                 print "</table>";    
             ?>  
+
+        <h2> Impressoras:</h2>
+
+        <?php
+
+                    if($filtro != ""){
+                    print "Resutados com $filtro<br>";}
+                    print " $registrosImpre registros encontrados.";
+
+                ?>
+        <table border="1" class="topoTabela zeroMargin testeTt">
+            <tr style=background-color:<?php echo $fundo;?> >
+                <td class="topoTabela"><h1>Patrimônio Ufsc</h1></td>
+                <td><h1>Patrimônio Lantec</h1></td>
+                <td><h1>Marca</h1></td>
+                <td><h1>Modelo</h1></td>
+                <td><h1>Serial</h1></td>
+                <td><h1>Colorida</h1></td>
+                <td><h1>Digitalização</h1></td>
+                <td><h1>Conservação</h1></td>
+                <td><h1>Status</h1></td>
+                <td><h1>Localização</h1></td>
+                <td><h1>Informações complementares</h1></td>
+            </tr>
+        
+        <?php
+             while ($exibirRegistros = mysqli_fetch_array($consultaImpre)) {
+                    $patrimônioUfsc = $exibirRegistros[0];
+                    $patrimônioLantec = $exibirRegistros[1];
+                    $marcas = $exibirRegistros[2];
+                    $modelo = $exibirRegistros[3];
+                    $serial = $exibirRegistros[4];
+                    $colorida = $exibirRegistros[5];
+                    $digitaliza =$exibirRegistros[6];
+                    $conservação = $exibirRegistros[7];
+                    $status = $exibirRegistros[8];
+                    $localizacao = $exibirRegistros[9];
+                    $txtArea = $exibirRegistros[10];
+                    
+                    
+
+                    if($fundo=="#55f4c2"){
+                        $fundo= "#9CA7A3";
+                    } else {
+                        $fundo= "#55f4c2";
+                    }
+
+                    print"<tr style=background-color:$fundo>";
+                        print"<td>";
+                        print"$patrimônioUfsc";
+                        print"</td>";
+                    
+                        print"<td>";
+                        print"$patrimônioLantec";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$marcas";
+                        print"</td>";
+                        
+                        print"<td>";
+                        print"$modelo";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$serial";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$colorida";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$digitaliza";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$conservação";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$status";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$localizacao";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$txtArea";
+                        print"</td>";
+                       
+
+                    print"</tr>";
+                }
+           
+                print "</table>";    
+        ?>
+
+
 
 
 
