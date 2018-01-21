@@ -15,6 +15,10 @@
     $consultaImpre = mysqli_query($conexao,$sqlImpre);
     $registrosImpre = mysqli_num_rows($consultaImpre);
 
+    //Geral
+    $sqlGeralCadastro = "SELECT * FROM `inventarioGeral` WHERE inputUfsc like '%$filtro%' ORDER BY inputLantec ASC";
+    $consultaGeralCadastro = mysqli_query($conexao,$sqlGeralCadastro);
+    $registrosGeralCadastro = mysqli_num_rows($consultaGeralCadastro);
     ?>
 
 <!DOCTYPE html >
@@ -365,9 +369,97 @@
                 print "</table>";    
         ?>
 
+        <h2> Geral:</h2>
+        <?php
+            if($filtro != ""){
+                print "Resutados com $filtro<br>";}
+                print " $registrosGeralCadastro registros encontrados.";
+                ?>
+        <table border="1" class="topoTabela zeroMargin testeTt">
+        <tr style=background-color:<?php echo $fundo;?> >
+            <td><h1 class="topoTabela">Tipo</h1></td>
+            <td><h1>Patrimônio Ufsc</h1></td>
+            <td><h1>Patrimônio Lantec</h1></td>
+            <td><h1>Marca</h1></td>
+            <td><h1>Modelo</h1></td>
+            <td><h1>Serial</h1></td>
+            <td><h1>Conservação</h1></td>
+            <td><h1>Status</h1></td>
+            <td><h1>Localização</h1></td>
+            <td><h1>Informações complementares</h1></td>
+        </tr>
+        <?php
+             while ($exibirRegistros = mysqli_fetch_array($consultaGeralCadastro)) {
+                    $tipo = "foupegar";
+                    $patrimônioUfsc = $exibirRegistros[1];
+                    $patrimônioLantec = $exibirRegistros[2];
+                    $marcas = $exibirRegistros[3];
+                    $modelo = $exibirRegistros[4];
+                    $serial = $exibirRegistros[5];
+                    $conservação = $exibirRegistros[6];
+                    $status = $exibirRegistros[7];
+                    $localizacao = $exibirRegistros[8];
+                    $txtArea = $exibirRegistros[9];
+                    
+                    
+
+                    if($fundo=="#55f4c2"){
+                        $fundo= "#9CA7A3";
+                    } else {
+                        $fundo= "#55f4c2";
+                    }
+
+                    print"<tr style=background-color:$fundo>";
+                        print"<td>";
+                        print"$tipo";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$patrimônioUfsc";
+                        print"</td>";
+                    
+                        print"<td>";
+                        print"$patrimônioLantec";
+                        print"</td>";
+
+                        
+                        
+
+                        print"<td>";
+                        print"$marcas";
+                        print"</td>";
+                        
+                        print"<td>";
+                        print"$modelo";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$serial";
+                        print"</td>";
 
 
+                        print"<td>";
+                        print"$conservação";
+                        print"</td>";
 
+                        print"<td>";
+                        print"$status";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$localizacao";
+                        print"</td>";
+
+                        print"<td>";
+                        print"$txtArea";
+                        print"</td>";
+                       
+
+                    print"</tr>";
+                }
+           
+                print "</table>";    
+        ?>
 
 
         <?php
