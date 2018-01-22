@@ -422,9 +422,6 @@
                         print"$patrimônioLantec";
                         print"</td>";
 
-                        
-                        
-
                         print"<td>";
                         print"$marcas";
                         print"</td>";

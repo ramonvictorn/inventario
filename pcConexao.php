@@ -2,7 +2,7 @@
 $hostname = "localhost";
 $user = "root";
 $password = "root";
-$database = "lantec";
+$database = "lantecInventario";
 $conexao = mysqli_connect($hostname,$user,$password,$database);
 
 if(!$conexao){

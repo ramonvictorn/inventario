@@ -17,6 +17,7 @@ $ultimoCadastro = $ultimoCadastro + "1";
 
 //END LAST INVENTARY
 
+    $option = $_POST['selectInicial'];
       
 
 mysqli_close($conexao);    
@@ -40,8 +41,7 @@ mysqli_close($conexao);
     
 <body>    
 <div class="container">
- <div class="row ">
-            
+    <div class="row ">
                 <div class="col-xl-4 col-md-4 menu">
                      <img src="img/logo_lantec.png">
                 </div>    
@@ -52,9 +52,11 @@ mysqli_close($conexao);
                         <li><a href="consultar.php">Consultar</a></li>
                         <li><a href="contato.php">Contato</a></li>
                     </ul>
-                </div>
-            
+                </div>        
     </div>
+    <?php
+            print($option);
+    ?>
 <h1 class="centro" id="tituloPaginaCadastro"></h1>
   <form class="fomulariopc" method="post" action="geralProcessa.php">
     <div class="row">
